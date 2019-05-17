@@ -11,10 +11,10 @@ describe('Buffer Manipulation', () => {
   });
 
   it('Slices a buffer into an array of buffers at a givven charcode', () =>{
-    let testBuffer = Buffer.from('Hello World');
+    let testBuffer = Buffer.from('Hello.World');
     let result = [Buffer.from('Hello'), Buffer.from('World')];
 
-    expect(sliceToArray(testBuffer, 0x20)).toEqual(result);
+    expect(sliceToArray(testBuffer, '.')).toEqual(result);
   });
 
 });
