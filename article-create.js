@@ -12,19 +12,19 @@ const readWithPromises = util.promisify(fs.readFile);
 
 //===============================
 
-const articleStart = stringToBuffer('<article>');
-const articleEnd = stringToBuffer('</article>');
+const articleStart = stringToBuffer('\n\t<article>');
+const articleEnd = stringToBuffer('\n</article>\n');
 
-const h2Start = stringToBuffer('<h2>');
+const h2Start = stringToBuffer('\n\t\t<h2>');
 const h2End = stringToBuffer('</h2>');
 
-const h3Start = stringToBuffer('<h3>');
+const h3Start = stringToBuffer('\n\t\t<h3>');
 const h3End = stringToBuffer('</h3>');
 
-const liStart = stringToBuffer('<li>');
+const liStart = stringToBuffer('\n\t\t\t<li>');
 const liEnd = stringToBuffer('</li>');
 
-const htmlEnd = stringToBuffer('</body> </html>');
+const htmlEnd = stringToBuffer('\n</body>\n</html>');
 
 //===============================
 
@@ -34,7 +34,7 @@ let html = readWithPromises('./files/html-start.txt').then( data => data).catch(
 
 let text = readWithPromises('./files/pair-programming.txt')
   .then( data => {
-    sections = sliceToArray(data, 0x0a);
+    sections = sliceToArray(data, '\n');
     let buffer = Buffer.alloc(articleStart.length, articleStart);
 
     for(let i in sections) {
@@ -60,7 +60,6 @@ let text = readWithPromises('./files/pair-programming.txt')
 
 Promise.all([html, text])
   .then( (values) => {
-    console.log(values);
     let htmlPage = Buffer.concat(values);
 
     fs.writeFile('./index.html', htmlPage, (err, data) => {

@@ -5,41 +5,31 @@
   
 ### Author: Morgana Spake  
   
-<!-- ### Links and Resources  
-* [submission PR](http://xyz.com)  
-* [travis](http://xyz.com)  
+### Links and Resources  
+* [submission PR](https://github.com/401-advanced-javascript-mspake/lab-04/pull/1)    
+* [travis](https://www.travis-ci.com/401-advanced-javascript-mspake/lab-04)  
   
-#### Documentation
-* [api docs](http://xyz.com) (API servers)
-* [jsdoc](http://xyz.com) (Server assignments)
-* [styleguide](http://xyz.com) (React assignments)
-
-### Modules
-#### `modulename.js`
-##### Exported Values and Methods
-
-###### `foo(thing) -> string`
-Usage Notes or examples
-
-###### `bar(array) -> array`
-Usage Notes or examples
-
-### Setup
-#### `.env` requirements
-* `PORT` - Port Number
-* `MONGODB_URI` - URL to the running mongo instance/db
-
+### Modules  
+#### `slice-to-array.js, string-to-buffer.js`  
+##### Exported Values and Methods  
+  
+###### arrayify(buffer, string)  
+Pass in a buffer and a charcode or string to match, it will slice the buffer at all instances of the given charcode/string, removing the given string, and return an array of the sliced pieces.  
+  
+###### createBuffer(string)  
+Takes in a string and return a buffer.  
+  
 #### Running the app
-* `npm start`
-* Endpoint: `/foo/bar/`
-  * Returns a JSON object with abc in it.
-* Endpoint: `/bing/zing/`
-  * Returns a JSON object with xyz in it.
-  
-#### Tests
-* How do you run tests?
-* What assertions were made?
-* What assertions need to be / should be made?
-
-#### UML
-Link to an image of the UML for your application and response to events -->
+* `npm install`  
+* `node article-create.js`  
+* `live-server`  
+   
+#### Tests  
+* How do you run tests?  
+`npm test` 
+* What assertions were made?  
+  * if a string gets passed to the string-to-buffer.js module, it will return a buffer.  
+  * If a buffer and a string get passed to the slice-to-array.js module, it will return an array of buffers  
+* What assertions need to be / should be made?  
+  * Incorrect input  
+  * Current code is specific to the given text file, not dynamic.  

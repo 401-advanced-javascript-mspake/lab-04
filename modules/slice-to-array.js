@@ -1,13 +1,13 @@
 'use strict';
 
-function arrayify(buffer, charCode) {
+function arrayify(buffer, string) {
 
   const arr = [];
 
-  while(buffer.includes(charCode)){
-    let section = buffer.slice(0, buffer.indexOf(charCode));
+  while(buffer.includes(string)){
+    let section = buffer.slice(0, buffer.indexOf(string));
     if (section.length) arr.push(section);
-    buffer = buffer.slice(buffer.indexOf(charCode)+1);
+    buffer = buffer.slice(buffer.indexOf(string)+string.length);
   }
   arr.push(buffer);
 
