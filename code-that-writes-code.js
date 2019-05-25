@@ -9,7 +9,7 @@ names.forEach( (name) => {console.log(name);});`;
 
 let buffer = stringToBuffer(codeToWrite);
 
-fs.writeFile('./loop.js', buffer, (err, data) => {
+fs.writeFile('./files/loop.js', buffer, (err, data) => {
   if(err) {console.log(err);}
   console.log('writting to file');
 });

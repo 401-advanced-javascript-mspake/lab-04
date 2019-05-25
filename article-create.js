@@ -62,7 +62,7 @@ Promise.all([html, text])
   .then( (values) => {
     let htmlPage = Buffer.concat(values);
 
-    fs.writeFile('./index.html', htmlPage, (err, data) => {
+    fs.writeFile('./files/index.html', htmlPage, (err, data) => {
       if(err) {console.log(err);}
       console.log('writting to file');
     });
